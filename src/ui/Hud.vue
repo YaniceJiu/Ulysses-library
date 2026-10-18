@@ -42,8 +42,9 @@
           <button @pointerdown.prevent="press('d')" @pointerup.prevent="release('d')" @pointerleave="release('d')" @pointercancel="release('d')">→</button>
         </div>
       </div>
-      <button class="jump" @pointerdown.prevent="press(' ')" @pointerup.prevent="release(' ')" @pointerleave="release(' ')" @pointercancel="release(' ')">跳</button>
     </div>
+    <button v-if="!store.locked" class="touch-jump"
+      @pointerdown.prevent="press(' ')" @pointerup.prevent="release(' ')" @pointerleave="release(' ')" @pointercancel="release(' ')">跳</button>
   </div>
 </template>
 
@@ -124,10 +125,10 @@ async function signOut() {
 .enter-hint p { margin: 8px 0; color: #bdc9c2; font-size: 13px; line-height: 1.6; }
 .action-tip { bottom: 20%; display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 13px; }
 .toast { top: 82px; max-width: 90vw; background: #7f1d1d; }
-.touch-pad { position: absolute; bottom: max(18px,env(safe-area-inset-bottom)); left: 16px; display: flex; align-items: end; gap: 26px; pointer-events: auto; touch-action: none; }
+.touch-pad { position: absolute; bottom: max(18px,env(safe-area-inset-bottom)); left: 16px; display: flex; align-items: end; pointer-events: auto; touch-action: none; }
 .pad-arrows { display: grid; justify-items: center; gap: 4px; }
 .pad-arrows div { display: flex; gap: 4px; }
 .touch-pad button { width: 48px; height: 46px; padding: 0; background: #111c;color: white; font-size: 20px; border: 1px solid #ffffff55; touch-action: none; user-select: none; }
-.touch-pad .jump { width: 62px; height: 62px; border-radius: 50%; background: #16745ddd; font-size: 15px; }
+.touch-jump { position: absolute; right: 18px; bottom: max(24px,calc(env(safe-area-inset-bottom) + 6px)); width: 68px; height: 68px; padding: 0; border-radius: 50%; background: #16745ddd; font-size: 16px; pointer-events: auto; touch-action: none; user-select: none; }
 @media (pointer:fine) { .touch-pad { opacity: .62; } }
 </style>
