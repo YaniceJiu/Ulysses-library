@@ -7,7 +7,9 @@ export class PinsManager {
     this.group = new THREE.Group();
     this.world.scene.add(this.group);
     this.entries = new Map();
+    this.photoEntries = new Map();
     this.ray = new THREE.Raycaster();
+    this.textureLoader = new THREE.TextureLoader();
   }
 
   sync() {
@@ -24,6 +26,7 @@ export class PinsManager {
         this.entries.set(pin.id, marker);
       }
       marker.position.set(pin.x, pin.y + 0.28, pin.z);
+      this.syncPhoto(pin);
     }
     for (const [id, marker] of this.entries) {
       if (!seen.has(id)) {
@@ -33,6 +36,53 @@ export class PinsManager {
         this.entries.delete(id);
       }
     }
+    for (const [id, photo] of this.photoEntries) {
+      if (!seen.has(id)) {
+        this.group.remove(photo.sprite);
+        photo.sprite.material.map.dispose();
+        photo.sprite.material.dispose();
+        this.photoEntries.delete(id);
+      }
+    }
+  }
+
+  syncPhoto(pin) {
+    const enabled = store.role === 'admin'
+      ? store.ghost || store.settings.sharedGhost
+      : store.settings.sharedGhost;
+    let entry = this.photoEntries.get(pin.id);
+    if (!pin.photo || !pin.photoUrl) {
+      if (entry) {
+        this.group.remove(entry.sprite);
+        entry.sprite.material.map.dispose();
+        entry.sprite.material.dispose();
+        this.photoEntries.delete(pin.id);
+      }
+      return;
+    }
+    if (!entry || entry.url !== pin.photoUrl) {
+      if (entry) {
+        this.group.remove(entry.sprite);
+        entry.sprite.material.map.dispose();
+        entry.sprite.material.dispose();
+      }
+      const texture = this.textureLoader.load(pin.photoUrl);
+      const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
+      const sprite = new THREE.Sprite(material);
+      sprite.position.set(pin.x, pin.y + 1.05, pin.z);
+      sprite.scale.set(0.72, 0.72, 1);
+      sprite.userData.pinId = pin.id;
+      this.group.add(sprite);
+      entry = { url: pin.photoUrl, sprite };
+      this.photoEntries.set(pin.id, entry);
+      texture.onUpdate = () => {
+        const image = texture.image;
+        const aspect = image && image.height ? image.width / image.height : 1;
+        sprite.scale.set(Math.min(1.35, 0.72 * aspect), 0.72, 1);
+      };
+    }
+    entry.sprite.position.set(pin.x, pin.y + 1.05, pin.z);
+    entry.sprite.visible = enabled;
   }
 
   colorFor(ownerId) {

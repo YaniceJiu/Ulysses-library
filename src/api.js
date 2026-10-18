@@ -34,6 +34,7 @@ export const api = {
     return jfetch('POST', '/api/pins/' + encodeURIComponent(id) + '/photo', fd);
   },
   adminPins: () => jfetch('GET', '/api/admin/pins'),
+  adminCreatePin: (username, position) => jfetch('POST', '/api/admin/pins', { username, ...position }),
   updateSettings: (settings) => jfetch('PUT', '/api/admin/settings', settings),
   floors: () => jfetch('GET', '/api/floors'),
   rooms: () => jfetch('GET', '/api/rooms'),

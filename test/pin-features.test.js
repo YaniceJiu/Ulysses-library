@@ -95,6 +95,26 @@ test('图钉上限、所有权、照片授权与管理员全局 Board', async ()
     const allPins = await json(server, '/api/admin/pins', 'GET', undefined, admin);
     assert.equal(allPins.data.length, 5);
     assert.equal((await json(server, '/api/admin/pins')).response.status, 401);
+    const assigned = await json(server, '/api/admin/pins', 'POST', {
+      username: 'Bob', ...position(7),
+    }, admin);
+    assert.equal(assigned.response.status, 201);
+    assert.equal(assigned.data.ownerId, 'bob');
+    assert.equal(assigned.data.ownerName, 'Bob');
+    assert.equal((await json(server, '/api/pins', 'GET', undefined, alice)).data.length, 5);
+    assert.equal((await json(server, '/api/admin/pins', 'POST', {
+      username: 'NotRegistered', ...position(8),
+    }, admin)).response.status, 404);
+    assert.equal((await json(server, '/api/admin/pins', 'POST', {
+      username: 'Alice', ...position(8),
+    }, admin)).response.status, 409);
+    const adminPhoto = new FormData();
+    adminPhoto.append('photo', new Blob([Buffer.from([0xff, 0xd8, 0xff, 0xd9])], { type: 'image/jpeg' }), 'admin-pin.jpg');
+    const adminUpload = await fetch(server.base + '/api/pins/' + assigned.data.id + '/photo', {
+      method: 'POST', headers: { cookie: admin }, body: adminPhoto,
+    });
+    assert.equal(adminUpload.status, 200);
+    assert.equal((await adminUpload.json()).photo, true);
 
     const form = new FormData();
     form.append('photo', new Blob([Buffer.from([0xff, 0xd8, 0xff, 0xd9])], { type: 'image/jpeg' }), 'pin.jpg');
@@ -112,7 +132,7 @@ test('图钉上限、所有权、照片授权与管理员全局 Board', async ()
     }, admin);
     assert.equal(settings.data.sharePins, true);
     assert.equal(settings.data.sharedGhost, true);
-    assert.equal((await json(server, '/api/pins', 'GET', undefined, bob)).data.length, 5);
+    assert.equal((await json(server, '/api/pins', 'GET', undefined, bob)).data.length, 6);
     const sharedPhoto = await fetch(server.base + '/api/pins/' + created[0].id + '/photo', {
       headers: { cookie: bob },
     });

@@ -103,7 +103,11 @@ function createApp(config) {
   }
 
   function pinForClient(pin) {
-    return { ...pin, photo: Boolean(pin.photo), photoUrl: pin.photo ? '/api/pins/' + pin.id + '/photo' : null };
+    return {
+      ...pin,
+      photo: Boolean(pin.photo),
+      photoUrl: pin.photo ? '/api/pins/' + pin.id + '/photo?v=' + pin.updatedAt : null,
+    };
   }
 
   function visiblePins(user) {
@@ -339,6 +343,22 @@ function createApp(config) {
   });
 
   app.get('/api/admin/pins', requireAdmin, (req, res) => res.json(visiblePins(req.user)));
+
+  app.post('/api/admin/pins', requireAdmin, (req, res) => {
+    const account = pinStore.findAccount(req.body && req.body.username);
+    if (!account) return res.status(404).json({ error: '找不到这个玩家账号；请确认用户名已经注册' });
+    try {
+      const pin = pinStore.createPin(
+        { id: account.id, username: account.username, role: 'player' },
+        pinPosition(req.body),
+      );
+      store.addLog({ action: 'admin_pin_add', owner: account.id, pinId: pin.id });
+      emitPin('pin-added', pin);
+      res.status(201).json(pinForClient(pin));
+    } catch (error) {
+      res.status(error.message.includes('最多') ? 409 : 400).json({ error: error.message });
+    }
+  });
 
   app.put('/api/admin/settings', requireAdmin, (req, res) => {
     const body = req.body || {};
