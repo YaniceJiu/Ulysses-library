@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>区域含地形预览</title>
+<style>
+  body{margin:0;overflow:hidden;background:#87ceeb;font-family:system-ui,sans-serif;}
+  #info{position:fixed;top:12px;left:12px;z-index:10;background:rgba(0,0,0,.65);color:#fff;padding:10px 14px;border-radius:8px;font-size:13px;pointer-events:none;}
+  #legend{position:fixed;bottom:12px;left:12px;z-index:10;background:rgba(0,0,0,.6);color:#fff;padding:8px 12px;border-radius:8px;font-size:12px;pointer-events:none;}
+  .c{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:middle;margin-right:4px;}
+</style>
+</head>
+<body>
+<div id="info">🏗️ <b id="cnt">0</b> 方块 · 蓝色=建筑 棕/绿=地形</div>
+<div id="legend"><span class="c" style="background:#1e5aff"></span>建筑方块
+<span class="c" style="background:#9c7848"></span>地形(土/石)
+<span class="c" style="background:#6ea04c"></span>草方块</div>
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script>
+async function main(){
+  const data = await (await fetch('build_all.json')).json();
+  document.getElementById('cnt').textContent = data.blocks.length.toLocaleString();
+  const [sx,sy,sz]=data.size;
+  const scene=new THREE.Scene(); scene.background=new THREE.Color(0x87ceeb);
+  const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,0.1,3000);
+  const cx=sx/2,cy=sy/2,cz=sz/2;
+  camera.position.set(cx-90, cy+70, cz-90); camera.lookAt(cx,cy,cz);
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  document.body.appendChild(renderer.domElement);
+  const controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.target.set(cx,cy,cz); controls.update();
+  window.__cam=camera; window.__ctl=controls; window.__sz=data.size;
+  scene.add(new THREE.AmbientLight(0xffffff,0.7));
+  const sun=new THREE.DirectionalLight(0xffffff,0.7); sun.position.set(100,200,100); scene.add(sun);
+  const byT={0:{c:0x1e5aff,n:0},1:{c:0x9c7848,n:0},2:{c:0x6ea04c,n:0}};
+  for(const b of data.blocks){
+    let key = b.t===1 ? (b.id==='grass_block'?2:1) : 0;
+    byT[key].n++;
+  }
+  for(const [key,info] of Object.entries(byT)){
+    const list = data.blocks.filter(b=> (b.t===1?(b.id==='grass_block'?2:1):0)===+key);
+    if(!list.length) continue;
+    const geo=new THREE.BoxGeometry(1,1,1);
+    const mat=new THREE.MeshLambertMaterial({color:info.c});
+    const mesh=new THREE.InstancedMesh(geo,mat,list.length);
+    const m=new THREE.Matrix4(),q=new THREE.Quaternion(),s=new THREE.Vector3(1,1,1),p=new THREE.Vector3();
+    list.forEach((b,i)=>{p.set(b.x+0.5,b.y+0.5,b.z+0.5);m.compose(p,q,s);mesh.setMatrixAt(i,m);});
+    mesh.instanceMatrix.needsUpdate=true;
+    scene.add(mesh);
+  }
+  function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera);}
+  animate();
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+}
+main();
+</script>
+</body>
+</html>

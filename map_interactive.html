@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>城区俯视地图 - 找你的建筑</title>
+<style>
+  body{margin:0;font-family:system-ui,sans-serif;background:#111;color:#eee;}
+  #wrap{position:relative;display:inline-block;}
+  canvas{image-rendering:pixelated;display:block;}
+  #coord{position:fixed;top:10px;left:10px;background:rgba(0,0,0,.8);padding:8px 14px;border-radius:8px;font-size:15px;}
+  #tip{position:fixed;top:48px;left:10px;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:8px;font-size:13px;color:#9ad;}
+</style>
+</head>
+<body>
+<div id="coord">世界坐标: <b id="xyz">-</b></div>
+<div id="tip">🖱️ 鼠标移到建筑上，读出坐标（X, Z），发给我。<br>你的建筑是白+红+木板平台的。</div>
+<div id="wrap"><canvas id="cv"></canvas></div>
+<script>
+async function main(){
+  const data = await (await fetch('build_city.json')).json();
+  const X0=32, Z0=32;
+  const W=data.size[0], D=data.size[2];
+  // 每列最高方块颜色
+  const topColor = new Array(W*D).fill([120,170,120]);
+  const topY = new Array(W*D).fill(-999);
+  const BYID = {};
+  // 用颜色生成器（前端简化版）
+  const idColor = (id)=>{
+    if(BYID[id]) return BYID[id];
+    let c=[150,150,150];
+    const p=id.split('_');
+    const wool={white:[232,232,232],light_gray:[155,157,160],gray:[65,65,68],black:[26,26,29],blue:[48,70,160],light_blue:[110,170,230],cyan:[24,140,140],green:[70,130,55],lime:[120,200,60],yellow:[230,215,45],orange:[230,135,25],red:[170,50,45],pink:[235,145,180],magenta:[190,80,185],purple:[125,50,180],brown:[100,70,45]};
+    if(wool[p[0]]) c=wool[p[0]];
+    else if(id==='grass_block') c=[105,165,80];
+    else if(id==='water') c=[70,120,220];
+    else if(id==='dirt') c=[140,100,68];
+    else if(id==='sand') c=[222,210,160];
+    else if(id==='oak_planks') c=[162,132,83];
+    else if(id==='spruce_planks') c=[110,85,55];
+    else if(id==='dark_oak_planks') c=[65,47,28];
+    else if(id.includes('glass')) c=[180,210,230];
+    else if(id==='stone') c=[128,128,128];
+    else if(id==='stone_bricks') c=[124,124,124];
+    else if(id.includes('froglight')) c=[223,190,110];
+    else if(id.includes('sculk')) c=[35,60,55];
+    BYID[id]=c; return c;
+  };
+  for(const b of data.blocks){
+    const i=b.z*W+b.x;
+    if(b.y>topY[i]){ topY[i]=b.y; topColor[i]=idColor(b.id); }
+  }
+  const cv=document.getElementById('cv');
+  const SCALE=4;
+  cv.width=W*SCALE; cv.height=D*SCALE;
+  const ctx=cv.getContext('2d');
+  const img=ctx.createImageData(W*SCALE,D*SCALE);
+  for(let z=0;z<D;z++)for(let x=0;x<W;x++){
+    const c=topColor[z*W+x];
+    for(let dy=0;dy<SCALE;dy++)for(let dx=0;dx<SCALE;dx++){
+      const pi=((z*SCALE+dy)*W*SCALE + (x*SCALE+dx))*4;
+      img.data[pi]=c[0]; img.data[pi+1]=c[1]; img.data[pi+2]=c[2]; img.data[pi+3]=255;
+    }
+  }
+  ctx.putImageData(img,0,0);
+  cv.addEventListener('mousemove',(e)=>{
+    const r=cv.getBoundingClientRect();
+    const x=Math.floor((e.clientX-r.left)/SCALE);
+    const z=Math.floor((e.clientY-r.top)/SCALE);
+    if(x>=0&&x<W&&z>=0&&z<D){
+      document.getElementById('xyz').textContent = (x+X0)+' , '+(z+Z0);
+    }
+  });
+}
+main();
+</script>
+</body>
+</html>

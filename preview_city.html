@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>城区俯视 - 找你的建筑</title>
+<style>
+  body{margin:0;overflow:hidden;background:#0d1117;font-family:system-ui,sans-serif;}
+  #info{position:fixed;top:12px;left:12px;z-index:10;background:rgba(0,0,0,.65);color:#e6edf3;padding:10px 14px;border-radius:8px;font-size:13px;pointer-events:none;}
+  #info b{color:#7ee787;}
+</style>
+</head>
+<body>
+<div id="info">🏙️ 城区（x32..192, z32..160）· <b id="cnt">0</b> 方块<br>🖱️ 左键旋转 · 滚轮缩放 · 右键平移 · 可切到俯视</div>
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script src="colors_city.js"></script>
+<script>
+async function main(){
+  const data = await (await fetch('build_city.json')).json();
+  document.getElementById('cnt').textContent = data.blocks.length.toLocaleString();
+  const [sx,sy,sz]=data.size;
+  const scene=new THREE.Scene(); scene.background=new THREE.Color(0x87ceeb);
+  const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,0.1,4000);
+  const cx=sx/2, cy=sy/2, cz=sz/2;
+  camera.position.set(cx, sz*1.2, cz); camera.lookAt(cx,cy,cz);
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  document.body.appendChild(renderer.domElement);
+  const controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.target.set(cx,cy,cz); controls.update();
+  window.__cam=camera; window.__ctl=controls; window.__sz=data.size;
+  scene.add(new THREE.AmbientLight(0xffffff,0.8));
+  const sun=new THREE.DirectionalLight(0xffffff,0.8); sun.position.set(sx,sy*3,sz); scene.add(sun);
+  const geo=new THREE.BoxGeometry(1,1,1);
+  const mat=new THREE.MeshStandardMaterial({roughness:0.9,metalness:0.02});
+  const mesh=new THREE.InstancedMesh(geo,mat,data.blocks.length);
+  const m=new THREE.Matrix4(),q=new THREE.Quaternion(),s=new THREE.Vector3(1,1,1),p=new THREE.Vector3();
+  const ctmp=new THREE.Color();
+  data.blocks.forEach((b,i)=>{
+    p.set(b.x+0.5,b.y+0.5,b.z+0.5); m.compose(p,q,s); mesh.setMatrixAt(i,m);
+    const col=(BLOCK_COLORS[b.id]||[150,150,150]).map(v=>v/255);
+    ctmp.setRGB(col[0],col[1],col[2]); mesh.setColorAt(i,ctmp);
+  });
+  mesh.instanceMatrix.needsUpdate=true; if(mesh.instanceColor) mesh.instanceColor.needsUpdate=true;
+  scene.add(mesh);
+  function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera);}
+  animate();
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+}
+main();
+</script>
+</body>
+</html>

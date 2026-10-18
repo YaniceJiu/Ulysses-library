@@ -1,0 +1,7 @@
+// Mineways 导出脚本：加载 Arnis World 2，导出指定区域为 OBJ
+// 用法: mineways.exe -headless export_building.mwscript
+Minecraft world: Arnis World 2
+Set render type: Wavefront OBJ absolute indices
+Selection location min to max: 0, -64, 0 to 100, 100, 100
+Export for Rendering: C:/Users/janic/Downloads/mc_walkthrough/export_test.obj
+Close

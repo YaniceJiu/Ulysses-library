@@ -1,0 +1,28 @@
+/* 全局样式 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; overflow: hidden; font-family: "Microsoft YaHei", system-ui, sans-serif; background: #87b5e5; }
+canvas { display: block; }
+.scene-mount canvas { touch-action: none; }
+button {
+  cursor: pointer; border: none; border-radius: 6px; padding: 8px 14px;
+  font-size: 14px; background: #3b82f6; color: #fff; transition: background .15s;
+}
+button:hover { background: #2563eb; }
+button:disabled { background: #94a3b8; cursor: not-allowed; }
+button.ghost-btn { background: #475569; }
+button.danger { background: #dc2626; }
+.panel {
+  position: absolute; background: rgba(15, 23, 42, .92); color: #e2e8f0;
+  border-radius: 12px; padding: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.4);
+  z-index: 20; max-height: 90vh; overflow: auto;
+}
+.panel h3 { margin-bottom: 10px; font-size: 16px; }
+.row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+input[type=text], input[type=password], select {
+  padding: 7px 10px; border-radius: 6px; border: 1px solid #334155;
+  background: #0f172a; color: #e2e8f0; font-size: 14px; outline: none;
+}
+input[type=color] { width: 42px; height: 32px; border: none; background: none; cursor: pointer; }
+input[type=range] { width: 140px; }
+.close { float: right; background: #334155; padding: 4px 10px; }
+.tip { color: #94a3b8; font-size: 12px; }

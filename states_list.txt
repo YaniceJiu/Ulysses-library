@@ -1,0 +1,421 @@
+不同方块状态数: 291
+  blue_carpet                      {}                                         x1851
+  ochre_froglight                  {"axis": "x"}                              x1639
+  bookshelf                        {}                                         x1617
+  cyan_terracotta                  {}                                         x1302
+  gray_carpet                      {}                                         x1267
+  end_rod                          {"facing": "up"}                           x1229
+  white_wool                       {}                                         x1215
+  ochre_froglight                  {"axis": "y"}                              x1158
+  glass                            {}                                         x1064
+  black_wool                       {}                                         x963
+  glass_pane                       {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x931
+  glass_pane                       {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x887
+  smooth_quartz                    {}                                         x876
+  lantern                          {"hanging": "true", "waterlogged": "false"} x872
+  wither_skeleton_skull            {"powered": "false", "rotation": "2"}      x872
+  red_nether_brick_wall            {"east": "none", "north": "low", "south": "low", "up": "false", "waterlogged": "false", "west": "none"} x854
+  light_blue_carpet                {}                                         x829
+  pale_oak_door                    {"facing": "north", "half": "upper", "hinge": "left", "open": "false", "powered": "false"} x825
+  orange_wool                      {}                                         x787
+  green_carpet                     {}                                         x716
+  spruce_fence                     {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x706
+  dark_oak_fence                   {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x703
+  yellow_carpet                    {}                                         x700
+  red_concrete                     {}                                         x699
+  quartz_block                     {}                                         x699
+  black_stained_glass_pane         {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x681
+  ochre_froglight                  {"axis": "z"}                              x641
+  glass_pane                       {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x597
+  spruce_shelf                     {"facing": "west", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x589
+  glass_pane                       {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x581
+  black_stained_glass_pane         {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x570
+  torch                            {}                                         x548
+  acacia_fence                     {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x546
+  oak_planks                       {}                                         x527
+  acacia_slab                      {"type": "double", "waterlogged": "false"} x466
+  spruce_fence                     {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x405
+  gray_stained_glass_pane          {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x400
+  mangrove_stairs                  {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"} x357
+  blackstone_wall                  {"east": "none", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "none"} x320
+  black_stained_glass_pane         {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x269
+  quartz_slab                      {"type": "top", "waterlogged": "false"}    x251
+  oak_slab                         {"type": "top", "waterlogged": "false"}    x228
+  black_concrete                   {}                                         x209
+  lantern                          {"hanging": "false", "waterlogged": "false"} x199
+  black_stained_glass_pane         {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x190
+  stripped_pale_oak_wood           {"axis": "y"}                              x177
+  oak_fence                        {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x177
+  black_carpet                     {}                                         x165
+  purple_wool                      {}                                         x164
+  cyan_carpet                      {}                                         x162
+  oak_slab                         {"type": "bottom", "waterlogged": "false"} x162
+  mangrove_trapdoor                {"facing": "north", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x152
+  mud_brick_wall                   {"east": "none", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "low"} x148
+  lime_carpet                      {}                                         x145
+  oak_fence                        {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x140
+  orange_carpet                    {}                                         x120
+  birch_planks                     {}                                         x114
+  end_rod                          {"facing": "down"}                         x106
+  quartz_stairs                    {"facing": "west", "half": "bottom", "shape": "straight", "waterlogged": "false"} x101
+  end_rod                          {"facing": "south"}                        x95
+  dark_oak_fence                   {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x85
+  oak_stairs                       {"facing": "south", "half": "top", "shape": "straight", "waterlogged": "false"} x84
+  mangrove_trapdoor                {"facing": "east", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x83
+  light_blue_glazed_terracotta     {"facing": "west"}                         x78
+  red_nether_brick_wall            {"east": "none", "north": "tall", "south": "none", "up": "true", "waterlogged": "false", "west": "tall"} x76
+  cyan_wool                        {}                                         x74
+  glass_pane                       {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x73
+  mud_brick_wall                   {"east": "none", "north": "tall", "south": "none", "up": "true", "waterlogged": "false", "west": "tall"} x72
+  smoker                           {"facing": "west", "lit": "false"}         x71
+  cinnabar_bricks                  {}                                         x66
+  stripped_pale_oak_wood           {"axis": "z"}                              x64
+  mud_brick_wall                   {"east": "none", "north": "low", "south": "low", "up": "false", "waterlogged": "false", "west": "none"} x63
+  dark_oak_fence                   {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x62
+  glass_pane                       {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x61
+  iron_chain                       {"axis": "y", "waterlogged": "false"}      x58
+  stripped_pale_oak_wood           {"axis": "x"}                              x58
+  white_terracotta                 {}                                         x58
+  stripped_oak_wood                {"axis": "z"}                              x57
+  glass_pane                       {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x54
+  light_gray_concrete              {}                                         x52
+  glass_pane                       {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x51
+  light_blue_wool                  {}                                         x50
+  blue_wool                        {}                                         x49
+  exposed_copper_bars              {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x47
+  light_gray_carpet                {}                                         x46
+  quartz_stairs                    {"facing": "north", "half": "bottom", "shape": "straight", "waterlogged": "false"} x46
+  pale_oak_door                    {"facing": "east", "half": "lower", "hinge": "left", "open": "false", "powered": "false"} x45
+  spruce_shelf                     {"facing": "south", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x45
+  polished_andesite                {}                                         x43
+  white_candle                     {"candles": "1", "lit": "true", "waterlogged": "false"} x43
+  cherry_fence                     {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x41
+  light_gray_stained_glass_pane    {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x41
+  cinnabar_brick_stairs            {"facing": "south", "half": "bottom", "shape": "inner_right", "waterlogged": "false"} x41
+  acacia_fence                     {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x40
+  glass_pane                       {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x40
+  polished_blackstone_brick_slab   {"type": "top", "waterlogged": "false"}    x40
+  smooth_quartz_slab               {"type": "top", "waterlogged": "false"}    x40
+  white_candle                     {"candles": "1", "lit": "false", "waterlogged": "false"} x39
+  black_terracotta                 {}                                         x36
+  oak_fence                        {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x36
+  prismarine_brick_stairs          {"facing": "east", "half": "bottom", "shape": "inner_right", "waterlogged": "false"} x35
+  quartz_stairs                    {"facing": "east", "half": "top", "shape": "straight", "waterlogged": "false"} x34
+  lectern                          {"facing": "west", "has_book": "false", "powered": "false"} x33
+  blackstone_wall                  {"east": "none", "north": "low", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x33
+  cherry_fence                     {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x33
+  black_stained_glass_pane         {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x32
+  dark_oak_shelf                   {"facing": "west", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x32
+  glass_pane                       {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x32
+  cherry_fence                     {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x32
+  gold_block                       {}                                         x31
+  spruce_shelf                     {"facing": "north", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x31
+  jungle_shelf                     {"facing": "north", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x31
+  spruce_stairs                    {"facing": "east", "half": "bottom", "shape": "straight", "waterlogged": "false"} x31
+  quartz_stairs                    {"facing": "south", "half": "top", "shape": "straight", "waterlogged": "false"} x31
+  red_nether_brick_wall            {"east": "low", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "none"} x31
+  oak_fence                        {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x31
+  weathered_lightning_rod          {"facing": "up", "powered": "false", "waterlogged": "false"} x30
+  gray_stained_glass_pane          {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x30
+  brown_mushroom_block             {"down": "true", "east": "false", "north": "true", "south": "true", "up": "true", "west": "true"} x30
+  loom                             {"facing": "east"}                         x28
+  black_stained_glass_pane         {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x28
+  red_nether_brick_wall            {"east": "tall", "north": "none", "south": "none", "up": "false", "waterlogged": "false", "west": "tall"} x26
+  light_gray_stained_glass_pane    {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x25
+  weathered_copper_bars            {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x24
+  spruce_shelf                     {"facing": "east", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x24
+  mangrove_trapdoor                {"facing": "west", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x23
+  mangrove_fence                   {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x23
+  black_stained_glass_pane         {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x22
+  spruce_fence                     {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x22
+  green_wool                       {}                                         x22
+  black_stained_glass_pane         {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x22
+  stripped_oak_wood                {"axis": "y"}                              x22
+  acacia_slab                      {"type": "top", "waterlogged": "false"}    x22
+  oak_fence                        {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x22
+  acacia_fence                     {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x21
+  cut_sandstone_slab               {"type": "top", "waterlogged": "false"}    x19
+  mud_brick_wall                   {"east": "low", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "none"} x19
+  acacia_fence                     {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x18
+  glass_pane                       {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x18
+  black_stained_glass_pane         {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x18
+  mangrove_trapdoor                {"facing": "south", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x17
+  light_gray_stained_glass_pane    {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x17
+  glass_pane                       {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x17
+  black_stained_glass_pane         {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x17
+  spruce_trapdoor                  {"facing": "west", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x17
+  mangrove_pressure_plate          {"powered": "false"}                       x17
+  wall_torch                       {"facing": "south"}                        x16
+  gray_stained_glass_pane          {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x16
+  gray_stained_glass_pane          {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x16
+  warped_hanging_sign              {"attached": "false", "rotation": "0", "waterlogged": "false"} x15
+  stripped_oak_log                 {"axis": "y"}                              x15
+  waxed_weathered_copper_grate     {"waterlogged": "false"}                   x15
+  pale_oak_door                    {"facing": "east", "half": "lower", "hinge": "left", "open": "true", "powered": "false"} x15
+  scaffolding                      {"bottom": "false", "distance": "0", "waterlogged": "false"} x14
+  quartz_stairs                    {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"} x14
+  smoker                           {"facing": "north", "lit": "false"}        x14
+  candle                           {"candles": "1", "lit": "true", "waterlogged": "false"} x14
+  mangrove_fence                   {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x14
+  spruce_trapdoor                  {"facing": "north", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x14
+  white_carpet                     {}                                         x13
+  spruce_fence                     {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x13
+  mud_brick_wall                   {"east": "none", "north": "tall", "south": "tall", "up": "false", "waterlogged": "false", "west": "none"} x13
+  light_gray_stained_glass_pane    {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x12
+  oak_pressure_plate               {"powered": "false"}                       x12
+  gray_wool                        {}                                         x12
+  dark_oak_fence                   {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x12
+  black_stained_glass_pane         {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x12
+  mangrove_wall_hanging_sign       {"facing": "south", "waterlogged": "false"} x12
+  flowering_azalea_leaves          {"distance": "7", "persistent": "true", "waterlogged": "false"} x12
+  acacia_fence                     {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x11
+  gray_stained_glass_pane          {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x11
+  prismarine_brick_stairs          {"facing": "east", "half": "bottom", "shape": "straight", "waterlogged": "false"} x11
+  black_stained_glass_pane         {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x11
+  red_candle                       {"candles": "1", "lit": "false", "waterlogged": "false"} x11
+  mud_brick_wall                   {"east": "none", "north": "low", "south": "none", "up": "true", "waterlogged": "false", "west": "low"} x11
+  cinnabar_brick_stairs            {"facing": "west", "half": "bottom", "shape": "straight", "waterlogged": "false"} x10
+  light_gray_stained_glass_pane    {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x10
+  quartz_slab                      {"type": "bottom", "waterlogged": "false"} x10
+  spruce_stairs                    {"facing": "north", "half": "bottom", "shape": "straight", "waterlogged": "false"} x10
+  polished_tuff_slab               {"type": "bottom", "waterlogged": "false"} x10
+  pale_oak_door                    {"facing": "east", "half": "upper", "hinge": "right", "open": "true", "powered": "false"} x10
+  chiseled_bookshelf               {"facing": "north", "slot_0_occupied": "false", "slot_1_occupied": "false", "slot_2_occupied": "false", "slot_3_occupied": "false", "slot_4_occupied": "false", "slot_5_occupied": "false"} x10
+  dark_oak_shelf                   {"facing": "south", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x9
+  white_shulker_box                {"facing": "up"}                           x9
+  quartz_stairs                    {"facing": "north", "half": "top", "shape": "straight", "waterlogged": "false"} x9
+  warped_wall_hanging_sign         {"facing": "south", "waterlogged": "false"} x8
+  purpur_slab                      {"type": "bottom", "waterlogged": "false"} x8
+  crimson_hanging_sign             {"attached": "false", "rotation": "0", "waterlogged": "false"} x8
+  acacia_fence                     {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x8
+  grindstone                       {"face": "floor", "facing": "south"}       x8
+  dark_oak_shelf                   {"facing": "north", "powered": "false", "side_chain": "unconnected", "waterlogged": "false"} x8
+  cherry_fence                     {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "true"} x8
+  spruce_stairs                    {"facing": "west", "half": "bottom", "shape": "straight", "waterlogged": "false"} x8
+  acacia_fence                     {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x7
+  decorated_pot                    {"cracked": "false", "facing": "north", "waterlogged": "false"} x7
+  warped_wall_hanging_sign         {"facing": "east", "waterlogged": "false"} x7
+  spruce_pressure_plate            {"powered": "false"}                       x7
+  light_blue_glazed_terracotta     {"facing": "east"}                         x7
+  mud_brick_wall                   {"east": "none", "north": "low", "south": "low", "up": "true", "waterlogged": "false", "west": "none"} x7
+  cherry_fence                     {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x6
+  light_gray_stained_glass_pane    {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x6
+  stripped_warped_hyphae           {"axis": "x"}                              x6
+  mud_brick_wall                   {"east": "low", "north": "low", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x6
+  chiseled_bookshelf               {"facing": "west", "slot_0_occupied": "false", "slot_1_occupied": "false", "slot_2_occupied": "false", "slot_3_occupied": "false", "slot_4_occupied": "false", "slot_5_occupied": "false"} x6
+  light_blue_wall_banner           {"facing": "east"}                         x6
+  lime_wall_banner                 {"facing": "east"}                         x6
+  white_wall_banner                {"facing": "east"}                         x6
+  weathered_copper_bars            {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x5
+  tripwire_hook                    {"attached": "false", "facing": "south", "powered": "false"} x5
+  pale_oak_pressure_plate          {"powered": "false"}                       x5
+  cinnabar_brick_stairs            {"facing": "north", "half": "bottom", "shape": "inner_left", "waterlogged": "false"} x5
+  cake                             {"bites": "4"}                             x5
+  mangrove_stairs                  {"facing": "east", "half": "bottom", "shape": "straight", "waterlogged": "false"} x5
+  mud_brick_wall                   {"east": "none", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "none"} x5
+  mud_brick_wall                   {"east": "tall", "north": "tall", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x5
+  wall_torch                       {"facing": "north"}                        x4
+  dark_oak_fence                   {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x4
+  oxidized_copper_chain            {"axis": "y", "waterlogged": "false"}      x4
+  soul_wall_torch                  {"facing": "south"}                        x4
+  spruce_fence                     {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x4
+  gray_stained_glass_pane          {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x4
+  light_gray_wool                  {}                                         x4
+  black_stained_glass_pane         {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x4
+  pale_oak_door                    {"facing": "east", "half": "upper", "hinge": "left", "open": "true", "powered": "false"} x4
+  smooth_quartz_stairs             {"facing": "north", "half": "top", "shape": "straight", "waterlogged": "false"} x4
+  oak_fence                        {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x4
+  structure_block                  {"mode": "save"}                           x3
+  glass_pane                       {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x3
+  dark_oak_fence                   {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x3
+  weathered_lightning_rod          {"facing": "north", "powered": "false", "waterlogged": "false"} x3
+  light_gray_stained_glass_pane    {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x3
+  quartz_stairs                    {"facing": "west", "half": "top", "shape": "straight", "waterlogged": "false"} x3
+  lime_concrete_powder             {}                                         x3
+  spruce_fence                     {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x3
+  prismarine_brick_stairs          {"facing": "south", "half": "bottom", "shape": "inner_right", "waterlogged": "false"} x3
+  weathered_copper_bars            {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x3
+  gray_stained_glass_pane          {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x3
+  mud_brick_wall                   {"east": "none", "north": "tall", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x3
+  mud_brick_wall                   {"east": "none", "north": "none", "south": "none", "up": "true", "waterlogged": "false", "west": "tall"} x3
+  exposed_lightning_rod            {"facing": "up", "powered": "false", "waterlogged": "false"} x2
+  ender_chest                      {"facing": "west", "waterlogged": "false"} x2
+  blackstone_wall                  {"east": "none", "north": "none", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x2
+  weathered_copper_bars            {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x2
+  oxidized_lightning_rod           {"facing": "up", "powered": "false", "waterlogged": "false"} x2
+  spruce_fence                     {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x2
+  dark_oak_fence                   {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x2
+  cartography_table                {}                                         x2
+  dark_oak_stairs                  {"facing": "east", "half": "bottom", "shape": "straight", "waterlogged": "false"} x2
+  warped_wall_hanging_sign         {"facing": "west", "waterlogged": "false"} x2
+  black_stained_glass_pane         {"east": "true", "north": "true", "south": "true", "waterlogged": "false", "west": "true"} x2
+  weathered_copper_bars            {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x2
+  pale_oak_door                    {"facing": "east", "half": "upper", "hinge": "left", "open": "false", "powered": "false"} x2
+  quartz_slab                      {"type": "double", "waterlogged": "false"} x2
+  oak_sapling                      {"stage": "0"}                             x2
+  brown_mushroom_block             {"down": "true", "east": "true", "north": "true", "south": "true", "up": "false", "west": "false"} x2
+  brown_mushroom_block             {"down": "false", "east": "false", "north": "true", "south": "true", "up": "true", "west": "false"} x2
+  light_blue_glazed_terracotta     {"facing": "south"}                        x2
+  red_nether_brick_wall            {"east": "low", "north": "low", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x2
+  pale_oak_door                    {"facing": "east", "half": "lower", "hinge": "right", "open": "true", "powered": "false"} x2
+  pale_oak_door                    {"facing": "east", "half": "upper", "hinge": "right", "open": "false", "powered": "false"} x2
+  red_carpet                       {}                                         x2
+  glass_pane                       {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x1
+  cherry_fence                     {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x1
+  blackstone_wall                  {"east": "low", "north": "none", "south": "none", "up": "true", "waterlogged": "false", "west": "none"} x1
+  exposed_copper_bars              {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x1
+  oxidized_lightning_rod           {"facing": "south", "powered": "false", "waterlogged": "false"} x1
+  ender_chest                      {"facing": "south", "waterlogged": "false"} x1
+  exposed_lightning_rod            {"facing": "south", "powered": "false", "waterlogged": "false"} x1
+  structure_block                  {"mode": "corner"}                         x1
+  spruce_fence                     {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x1
+  dark_oak_fence                   {"east": "true", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x1
+  campfire                         {"facing": "west", "lit": "true", "signal_fire": "false", "waterlogged": "false"} x1
+  prismarine_brick_stairs          {"facing": "west", "half": "bottom", "shape": "straight", "waterlogged": "false"} x1
+  weathered_copper_bars            {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "true"} x1
+  dark_oak_stairs                  {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"} x1
+  iron_bars                        {"east": "true", "north": "false", "south": "true", "waterlogged": "false", "west": "false"} x1
+  prismarine_brick_stairs          {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"} x1
+  acacia_stairs                    {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"} x1
+  pale_oak_door                    {"facing": "north", "half": "lower", "hinge": "left", "open": "false", "powered": "false"} x1
+  mangrove_fence                   {"east": "false", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x1
+  brown_mushroom_block             {"down": "false", "east": "true", "north": "true", "south": "true", "up": "false", "west": "false"} x1
+  oak_fence                        {"east": "false", "north": "false", "south": "true", "waterlogged": "false", "west": "true"} x1
+  mangrove_fence                   {"east": "true", "north": "false", "south": "false", "waterlogged": "false", "west": "false"} x1
+  mangrove_fence                   {"east": "false", "north": "true", "south": "true", "waterlogged": "false", "west": "false"} x1
+  red_nether_brick_wall            {"east": "none", "north": "none", "south": "low", "up": "true", "waterlogged": "false", "west": "low"} x1
+  red_nether_brick_wall            {"east": "none", "north": "low", "south": "none", "up": "true", "waterlogged": "false", "west": "low"} x1
+  stripped_oak_wood                {"axis": "x"}                              x1
+  oak_fence                        {"east": "false", "north": "true", "south": "false", "waterlogged": "false", "west": "false"} x1
+  spruce_trapdoor                  {"facing": "south", "half": "bottom", "open": "false", "powered": "false", "waterlogged": "false"} x1
+  mud_brick_wall                   {"east": "none", "north": "none", "south": "none", "up": "true", "waterlogged": "false", "west": "low"} x1
+  slime_block                      {}                                         x1
+
+全部方块 ID (127 种):
+  ochre_froglight                  x3438
+  glass_pane                       x3346
+  black_stained_glass_pane         x1878
+  blue_carpet                      x1851
+  bookshelf                        x1617
+  end_rod                          x1430
+  cyan_terracotta                  x1302
+  gray_carpet                      x1267
+  white_wool                       x1215
+  spruce_fence                     x1156
+  lantern                          x1071
+  glass                            x1064
+  red_nether_brick_wall            x991
+  black_wool                       x963
+  pale_oak_door                    x906
+  smooth_quartz                    x876
+  wither_skeleton_skull            x872
+  dark_oak_fence                   x872
+  light_blue_carpet                x829
+  orange_wool                      x787
+  green_carpet                     x716
+  yellow_carpet                    x700
+  red_concrete                     x699
+  quartz_block                     x699
+  spruce_shelf                     x689
+  acacia_fence                     x651
+  torch                            x548
+  oak_planks                       x527
+  acacia_slab                      x488
+  gray_stained_glass_pane          x480
+  oak_fence                        x412
+  oak_slab                         x390
+  mangrove_stairs                  x362
+  blackstone_wall                  x356
+  mud_brick_wall                   x356
+  stripped_pale_oak_wood           x299
+  mangrove_trapdoor                x275
+  quartz_slab                      x263
+  quartz_stairs                    x238
+  black_concrete                   x209
+  black_carpet                     x165
+  purple_wool                      x164
+  cyan_carpet                      x162
+  lime_carpet                      x145
+  cherry_fence                     x121
+  orange_carpet                    x120
+  birch_planks                     x114
+  light_gray_stained_glass_pane    x114
+  light_blue_glazed_terracotta     x87
+  smoker                           x85
+  oak_stairs                       x84
+  white_candle                     x82
+  stripped_oak_wood                x80
+  cyan_wool                        x74
+  cinnabar_bricks                  x66
+  iron_chain                       x58
+  white_terracotta                 x58
+  cinnabar_brick_stairs            x56
+  light_gray_concrete              x52
+  prismarine_brick_stairs          x51
+  light_blue_wool                  x50
+  blue_wool                        x49
+  spruce_stairs                    x49
+  dark_oak_shelf                   x49
+  exposed_copper_bars              x48
+  light_gray_carpet                x46
+  polished_andesite                x43
+  mangrove_fence                   x40
+  polished_blackstone_brick_slab   x40
+  smooth_quartz_slab               x40
+  weathered_copper_bars            x37
+  black_terracotta                 x36
+  brown_mushroom_block             x35
+  weathered_lightning_rod          x33
+  lectern                          x33
+  spruce_trapdoor                  x32
+  gold_block                       x31
+  jungle_shelf                     x31
+  loom                             x28
+  green_wool                       x22
+  wall_torch                       x20
+  cut_sandstone_slab               x19
+  warped_wall_hanging_sign         x17
+  mangrove_pressure_plate          x17
+  chiseled_bookshelf               x16
+  warped_hanging_sign              x15
+  stripped_oak_log                 x15
+  waxed_weathered_copper_grate     x15
+  scaffolding                      x14
+  candle                           x14
+  white_carpet                     x13
+  oak_pressure_plate               x12
+  gray_wool                        x12
+  mangrove_wall_hanging_sign       x12
+  flowering_azalea_leaves          x12
+  red_candle                       x11
+  polished_tuff_slab               x10
+  white_shulker_box                x9
+  purpur_slab                      x8
+  crimson_hanging_sign             x8
+  grindstone                       x8
+  decorated_pot                    x7
+  spruce_pressure_plate            x7
+  stripped_warped_hyphae           x6
+  light_blue_wall_banner           x6
+  lime_wall_banner                 x6
+  white_wall_banner                x6
+  tripwire_hook                    x5
+  pale_oak_pressure_plate          x5
+  cake                             x5
+  structure_block                  x4
+  oxidized_copper_chain            x4
+  soul_wall_torch                  x4
+  light_gray_wool                  x4
+  smooth_quartz_stairs             x4
+  exposed_lightning_rod            x3
+  ender_chest                      x3
+  oxidized_lightning_rod           x3
+  lime_concrete_powder             x3
+  dark_oak_stairs                  x3
+  cartography_table                x2
+  oak_sapling                      x2
+  red_carpet                       x2
+  campfire                         x1
+  iron_bars                        x1
+  acacia_stairs                    x1
+  slime_block                      x1

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Minecraft 建筑 - Mineways OBJ 查看器</title>
+<style>
+  body{margin:0;overflow:hidden;background:#0d1117;font-family:system-ui,sans-serif;}
+  #info{position:fixed;top:12px;left:12px;z-index:10;background:rgba(0,0,0,.65);color:#e6edf3;padding:10px 14px;border-radius:8px;font-size:13px;pointer-events:none;}
+  #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:18px;background:#0d1117;z-index:5;}
+</style>
+</head>
+<body>
+<div id="loading">加载 Mineways 模型…</div>
+<div id="info">🏗️ <b id="n"></b> · Mineways 导出 · 左键转/滚轮缩放<br>
+🖱️ 移到建筑上 → <b id="xyz" style="color:#7ee787">坐标</b></div>
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script src="OBJLoader.js"></script>
+<script src="MTLLoader.js"></script>
+<script>
+async function main(){
+  const params = new URLSearchParams(location.search);
+  const objName = params.get('obj') || 'export_test.obj';
+  const mtlName = params.get('mtl') || objName.replace(/\.obj$/,'.mtl');
+  const scene=new THREE.Scene(); scene.background=new THREE.Color(0x0d1117);
+  const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,0.1,20000);
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  document.body.appendChild(renderer.domElement);
+  scene.add(new THREE.AmbientLight(0xffffff,0.6));
+  const sun=new THREE.DirectionalLight(0xffffff,0.9); sun.position.set(200,500,200); scene.add(sun);
+  const sun2=new THREE.DirectionalLight(0xffffff,0.4); sun2.position.set(-200,300,-200); scene.add(sun2);
+
+  const mtlLoader=new THREE.MTLLoader();
+  mtlLoader.setPath(''); // 和 obj 同目录
+  const mtl = await mtlLoader.loadAsync(mtlName);
+  mtl.preload();
+  const objLoader=new THREE.OBJLoader();
+  objLoader.setMaterials(mtl);
+  const obj = await objLoader.loadAsync(objName);
+  scene.add(obj);
+
+  const box=new THREE.Box3().setFromObject(obj);
+  const center=box.getCenter(new THREE.Vector3());
+  const size=box.getSize(new THREE.Vector3());
+  const radius=Math.max(size.x,size.y,size.z);
+  camera.position.set(center.x+radius*1.2, center.y+radius*1.0, center.z+radius*1.2);
+  camera.lookAt(center);
+  const controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.target.copy(center); controls.update();
+  window.__cam=camera; window.__ctl=controls;
+
+  // 统计网格
+  let verts=0,tris=0;
+  obj.traverse(o=>{ if(o.isMesh){ verts+=o.geometry.attributes.position.count; tris+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3; }});
+  document.getElementById('n').textContent = `${(tris/1000).toFixed(0)}K 三角形`;
+  document.getElementById('loading').style.display='none';
+
+  // 鼠标悬停显示世界坐标（射线检测）
+  const raycaster=new THREE.Raycaster();
+  const mouse=new THREE.Vector2();
+  const meshes=[];
+  obj.traverse(o=>{ if(o.isMesh) meshes.push(o); });
+  renderer.domElement.addEventListener('mousemove',(e)=>{
+    const r=renderer.domElement.getBoundingClientRect();
+    mouse.x=((e.clientX-r.left)/r.width)*2-1;
+    mouse.y=-((e.clientY-r.top)/r.height)*2+1;
+    raycaster.setFromCamera(mouse,camera);
+    const hits=raycaster.intersectObjects(meshes,false);
+    if(hits.length){
+      const p=hits[0].point;
+      document.getElementById('xyz').textContent = `${Math.floor(p.x)}, ${Math.floor(p.z)} (y ${Math.floor(p.y)})`;
+    }
+  });
+
+  function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera);}
+  animate();
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+}
+main();
+</script>
+</body>
+</html>

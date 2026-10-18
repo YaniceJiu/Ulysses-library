@@ -1,0 +1,5 @@
+// Mineways 导出城区（白红建筑所在区域）
+Minecraft world: Arnis World 2
+Set render type: Wavefront OBJ absolute indices
+Selection location min to max: 32, -64, 32 to 192, 100, 104
+Export for Rendering: C:/Users/janic/Downloads/mc_walkthrough/export_city.obj

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Minecraft 建筑 - 原版渲染预览</title>
+<style>
+  body { margin:0; overflow:hidden; background:#87ceeb; font-family:system-ui,sans-serif; }
+  #info { position:fixed; top:12px; left:12px; z-index:10; background:rgba(0,0,0,.65); color:#e6edf3;
+    padding:10px 14px; border-radius:8px; font-size:13px; line-height:1.6; pointer-events:none; }
+  #info b { color:#7ee787; }
+  #loading { position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:18px; z-index:5; background:#0d1117; }
+</style>
+</head>
+<body>
+<div id="loading">加载材质与建筑数据…</div>
+<div id="info">
+  🏗️ <b id="blockCount">0</b> 个方块 · <b id="triCount">0</b> 面<br>
+  尺寸 <b id="size"></b>（格）<br>
+  🖱️ 左键旋转 · 滚轮缩放 · 右键平移
+</div>
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script src="blocks.js"></script>
+<script src="build_scene.js"></script>
+<script>
+async function main() {
+  const [data, atlas] = await Promise.all([
+    fetch('build_data.json').then(r=>r.json()),
+    fetch('atlas.json').then(r=>r.json()),
+  ]);
+  const [sx, sy, sz] = data.size;
+  document.getElementById('blockCount').textContent = data.blocks.length.toLocaleString();
+  document.getElementById('size').textContent = `${sx} × ${sy} × ${sz}`;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x87ceeb);
+  const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 5000);
+  const cx = sx/2, cy = sy/2, cz = sz/2;
+  camera.position.set(cx + Math.max(sx,sz)*0.8, cy + Math.max(sy,20)*1.4, cz + Math.max(sx,sz)*0.8);
+  camera.lookAt(cx, cy, cz);
+
+  const renderer = new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  document.body.appendChild(renderer.domElement);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.target.set(cx, cy, cz);
+  controls.update();
+  window.__cam = camera; window.__ctl = controls; window.__sz = data.size;
+
+  const built = MCSceneBuilder(scene, data, atlas);
+  const tri = built.opaqueMesh.geometry.index.count;
+  document.getElementById('triCount').textContent = tri.toLocaleString();
+  document.getElementById('loading').style.display = 'none';
+  window.__scene = scene;
+
+  // 地面
+  const ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(Math.max(sx,sz)*2, Math.max(sx,sz)*2),
+    new THREE.MeshBasicMaterial({color:0x5a9e4b})
+  );
+  ground.rotation.x = -Math.PI/2;
+  ground.position.set(cx, -0.01, cz);
+  scene.add(ground);
+
+  function animate(){ requestAnimationFrame(animate); controls.update(); renderer.render(scene,camera); }
+  animate();
+  addEventListener('resize', ()=>{ camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight); });
+}
+main();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+data/
+uploads/
+Mineways/
+hd_pack/
+tex/
+__pycache__/
+models/*.glb
+models/*.obj
+.env
+.env.*
+!.env.example
+*.log
