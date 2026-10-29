@@ -233,18 +233,18 @@ th,td { padding: 8px; border-bottom: 1px solid #ffffff18; white-space: nowrap; }
 th { color: #aab8b1; font-weight: 600; }
 .record-number { display: inline-grid; width: 21px; height: 21px; margin-right: 7px; place-items: center; border-radius: 50%; background: #a32332; font-size: 11px; }
 .photo-cell { display: grid; justify-items: center; gap: 4px; }
-.photo-button { position: relative; width: 90px; height: 64px; display: grid; place-items: center; padding: 0; overflow: hidden; color: #dce8e2; background: #0b1217; font-size: 11px; }
+.photo-button { position: relative; width: 180px; height: 128px; display: grid; place-items: center; padding: 0; overflow: hidden; color: #dce8e2; background: #0b1217; font-size: 11px; }
 .photo-button img { width: 100%; height: 100%; object-fit: cover; }
 .photo-empty-upload { border: 1px dashed #8ed9c5; background: #17352f; cursor: pointer; touch-action: manipulation; }
 .photo-empty-upload input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
 .preview-hint { position: absolute; right: 2px; bottom: 2px; padding: 1px 4px; border-radius: 3px; background: #000a; }
-.upload-button { display: block; width: 90px; color: #8ed9c5; text-align: center; font-size: 11px; cursor: pointer; touch-action: manipulation; }
+.upload-button { display: block; width: 180px; color: #8ed9c5; text-align: center; font-size: 11px; cursor: pointer; touch-action: manipulation; }
 .upload-button input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
 .upload-button.busy { color: #aab8b1; cursor: wait; }
 .upload-error { max-width: 120px; color: #ff9e92; white-space: normal; }
 .danger { padding: 6px 8px; font-size: 12px; }
 .photo-modal { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #000e; }
-.photo-modal img { max-width: 90vw; max-height: 75vh; object-fit: contain; }
+.photo-modal img { width: 180vw; max-width: calc(100vw - 32px); max-height: calc(100vh - 120px); object-fit: contain; }
 .photo-modal p { color: white; }
 .close { position: absolute; top: 16px; right: 16px; }
 .error { color: #ff9e92; padding: 8px; }

@@ -39,8 +39,8 @@ async function remove() {
 </script>
 
 <style scoped>
-.pin-panel { top: 78px; right: 14px; width: min(310px, calc(100vw - 28px)); }
-.pin-panel img { display: block; width: 100%; max-height: 38vh; object-fit: contain; margin: 12px 0; border-radius: 8px; background: #080d12; }
+.pin-panel { top: 78px; right: 14px; width: min(620px, calc(100vw - 28px)); }
+.pin-panel img { display: block; width: 100%; max-height: 76vh; object-fit: contain; margin: 12px 0; border-radius: 8px; background: #080d12; }
 .pin-panel p { margin: 8px 0; color: #cbd5e1; font-size: 13px; }
 .actions { display: flex; gap: 7px; flex-wrap: wrap; }
 </style>

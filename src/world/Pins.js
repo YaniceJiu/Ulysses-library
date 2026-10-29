@@ -69,8 +69,8 @@ export class PinsManager {
       const texture = this.textureLoader.load(pin.photoUrl);
       const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
       const sprite = new THREE.Sprite(material);
-      sprite.position.set(pin.x, pin.y + 1.05, pin.z);
-      sprite.scale.set(0.72, 0.72, 1);
+      sprite.position.set(pin.x, pin.y + 1.41, pin.z);
+      sprite.scale.set(1.44, 1.44, 1);
       sprite.userData.pinId = pin.id;
       this.group.add(sprite);
       entry = { url: pin.photoUrl, sprite };
@@ -78,10 +78,10 @@ export class PinsManager {
       texture.onUpdate = () => {
         const image = texture.image;
         const aspect = image && image.height ? image.width / image.height : 1;
-        sprite.scale.set(Math.min(1.35, 0.72 * aspect), 0.72, 1);
+        sprite.scale.set(Math.min(2.7, 1.44 * aspect), 1.44, 1);
       };
     }
-    entry.sprite.position.set(pin.x, pin.y + 1.05, pin.z);
+    entry.sprite.position.set(pin.x, pin.y + 1.41, pin.z);
     entry.sprite.visible = enabled;
   }
 
